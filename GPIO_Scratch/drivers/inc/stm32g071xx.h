@@ -22,11 +22,11 @@
 /**************************************************************************************************************************************/
 
 /*********************************************IOPORTS***********************************************************************************/
-#define PORT_GPIOA							0x50000000U
-#define PORT_GPIOB							PORT_GPIOA+0x0400
-#define PORT_GPIOC							PORT_GPIOA+0x0800
-#define PORT_GPIOD							PORT_GPIOA+0x0C00
-#define PORT_GPIOF							PORT_GPIOA+0x1400
+#define PORT_GPIOA							IOPORT_BASE_ADDR
+#define PORT_GPIOB							IOPORT_BASE_ADDR+0x0400
+#define PORT_GPIOC							IOPORT_BASE_ADDR+0x0800
+#define PORT_GPIOD							IOPORT_BASE_ADDR+0x0C00
+#define PORT_GPIOF							IOPORT_BASE_ADDR+0x1400
 /***************************************************************************************************************************************/
 
 
