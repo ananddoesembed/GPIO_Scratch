@@ -30,6 +30,18 @@
 /***************************************************************************************************************************************/
 
 /**************************************Communication Peripherals************************************************************************/
+#define SPI1_BASE_ADDR						APB_BASE_ADDR+0x13000
+#define SPI2_BASE_ADDR						APB_BASE_ADDR+0x3800
+#define LPUART1_BASE_ADDR					APB_BASE_ADDR+0x8000
+#define USART1_BASE_ADDR					APB_BASE_ADDR+0x13800
+#define USART2_BASE_ADDR					APB_BASE_ADDR+0x4400
+#define USART3_BASE_ADDR					APB_BASE_ADDR+0x4800
+#define USART4_BASE_ADDR					APB_BASE_ADDR+0x4C00
+#define I2C1_BASE_ADDR						APB_BASE_ADDR+0x5400
+#define I2C2_BASE_ADDR						APB_BASE_ADDR+0x5800
+#define SYS_CFG_BASE_ADDR					APB_BASE_ADDR+0x10000
 /***************************************************************************************************************************************/
-
+/****************************************EXTENDED INTERRUPRT****************************************************************************/
+#define EXTI_BASE_ADDR						AHB_BASE_ADDR+0x1800
+/***************************************************************************************************************************************/
 #endif /* INC_STM32G071XX_H_ */
