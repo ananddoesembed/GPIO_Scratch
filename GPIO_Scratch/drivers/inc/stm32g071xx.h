@@ -8,6 +8,9 @@
 #ifndef INC_STM32G071XX_H_
 #define INC_STM32G071XX_H_
 
+#include <stdint.h>
+
+#define _IO volatile
 
 /************************************Controller memories ******************************************************************************/
 #define FLASH_BASE_ADDR						0x08000000U  /*If a number is written without U compiler will treat it as a signed number*/
@@ -41,7 +44,25 @@
 #define I2C2_BASE_ADDR						APB_BASE_ADDR+0x5800
 #define SYS_CFG_BASE_ADDR					APB_BASE_ADDR+0x10000
 /***************************************************************************************************************************************/
+
 /****************************************EXTENDED INTERRUPRT****************************************************************************/
 #define EXTI_BASE_ADDR						AHB_BASE_ADDR+0x1800
 /***************************************************************************************************************************************/
+
+/***************************************Peripheral Definitions **************************************************************************/
+ typedef struct
+		{
+	 	 uint32_t MODER;					/*MODE REGISTER 					OFFSET 0x00*/
+	 	 uint32_t OTYPER;					/*OUTPUT TYPE REGISTER				OFFSET 0x04*/
+	 	 uint32_t OSPEEDR;					/*OUTPUT SPEED REGISTER				OFFSET 0x08*/
+	 	 uint32_t PUPDR;					/*PULLUP PULLDOWN REGISTER			OFFSET 0x0C*/
+	 	 uint32_t IDR;						/*INPUT DATA REGISTER				OFFSET 0x10*/
+	 	 uint32_t ODR;						/*OUTPUT DATA REGISTER				OFFSET 0x14*/
+	 	 uint32_t BSRR;						/*BIT SET/RESET REGISTER			OFFSET 0x18*/
+	 	 uint32_t LCKR;						/*CONFIGURATION LOCK REGISTER		OFFSET 0x1C*/
+	 	 uint32_t AFRL;						/*ALTERNATE FUNCTION REGISTER LOW	OFFSET 0x20*/
+	   	 uint32_t AFRH;						/*ALTERNATE FUNCTION REGISTER LOW	OFFSET 0x24*/
+	 	 uint32_t BRR;						/*BIT RESET REGISTER				OFFSET 0x28*/
+		}GPIO_REG_DEF;
+/****************************************************************************************************************************************/
 #endif /* INC_STM32G071XX_H_ */
