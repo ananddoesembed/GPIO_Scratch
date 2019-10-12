@@ -50,19 +50,73 @@
 /***************************************************************************************************************************************/
 
 /***************************************Peripheral Definitions **************************************************************************/
- typedef struct
+
+/**********************************************GPIO**************************************************************************************/
+typedef struct
 		{
-	 	 uint32_t MODER;					/*MODE REGISTER 					OFFSET 0x00*/
-	 	 uint32_t OTYPER;					/*OUTPUT TYPE REGISTER				OFFSET 0x04*/
-	 	 uint32_t OSPEEDR;					/*OUTPUT SPEED REGISTER				OFFSET 0x08*/
-	 	 uint32_t PUPDR;					/*PULLUP PULLDOWN REGISTER			OFFSET 0x0C*/
-	 	 uint32_t IDR;						/*INPUT DATA REGISTER				OFFSET 0x10*/
-	 	 uint32_t ODR;						/*OUTPUT DATA REGISTER				OFFSET 0x14*/
-	 	 uint32_t BSRR;						/*BIT SET/RESET REGISTER			OFFSET 0x18*/
-	 	 uint32_t LCKR;						/*CONFIGURATION LOCK REGISTER		OFFSET 0x1C*/
-	 	 uint32_t AFRL;						/*ALTERNATE FUNCTION REGISTER LOW	OFFSET 0x20*/
-	   	 uint32_t AFRH;						/*ALTERNATE FUNCTION REGISTER LOW	OFFSET 0x24*/
-	 	 uint32_t BRR;						/*BIT RESET REGISTER				OFFSET 0x28*/
+	 	_IO uint32_t MODER;						/*MODE REGISTER 					OFFSET 0x00*/
+	 	_IO uint32_t OTYPER;					/*OUTPUT TYPE REGISTER				OFFSET 0x04*/
+	 	_IO uint32_t OSPEEDR;					/*OUTPUT SPEED REGISTER				OFFSET 0x08*/
+	 	_IO uint32_t PUPDR;						/*PULLUP PULLDOWN REGISTER			OFFSET 0x0C*/
+	 	_IO uint32_t IDR;						/*INPUT DATA REGISTER				OFFSET 0x10*/
+	 	_IO uint32_t ODR;						/*OUTPUT DATA REGISTER				OFFSET 0x14*/
+	 	_IO uint32_t BSRR;						/*BIT SET/RESET REGISTER			OFFSET 0x18*/
+	 	_IO uint32_t LCKR;						/*CONFIGURATION LOCK REGISTER		OFFSET 0x1C*/
+	 	_IO uint32_t AFRL;						/*ALTERNATE FUNCTION REGISTER LOW	OFFSET 0x20*/
+	 	_IO uint32_t AFRH;						/*ALTERNATE FUNCTION REGISTER LOW	OFFSET 0x24*/
+	 	_IO uint32_t BRR;						/*BIT RESET REGISTER				OFFSET 0x28*/
 		}GPIO_REG_DEF;
-/****************************************************************************************************************************************/
+/*******************************************************************************************************************************************/
+/*************************************************SPI***************************************************************************************/
+	typedef struct
+		{
+		_IO uint32_t CR1;						/*CONTROL REGISTER 1 				OFFSET 0x00*/
+		_IO uint32_t CR2;						/*CONTROL REGISTER 2				OFFSET 0x04*/
+		_IO uint32_t SR;						/*STATUS REGISTER					OFFSET 0x08*/
+		_IO uint32_t DR;						/*DATA REGISTER						OFFSET 0x0C*/
+		_IO uint32_t CRCPR;						/*CRC POLYNOMIAL REGISTER 			OFFSET 0x10*/
+		_IO uint32_t RXCRCR;					/*RX CRC REGISTER					OFFSET 0x14*/
+		_IO uint32_t TXCRCR;					/*TX CRC REGISTER					OFFSET 0x18*/
+		_IO uint32_t I2SCFGR;					/*I2S CONFIGURATION REGISTER		OFFSET 0x1C*/
+		_IO uint32_t I2SPR;						/*I2S PRESCALAR REGISTER			OFFSET 0x20*/
+		}SPI_REF_DEF;
+/******************************************************************************************************************************************/
+/************************************************I2C*************************************************************************************/
+	typedef struct
+		{
+		_IO uint32_t CR1;						/*CONTROL REGISTER 1 				OFFSET 0x00*/
+		_IO uint32_t CR2;						/*CONTROL REGISTER 2				OFFSET 0x04*/
+		_IO uint32_t OAR1;						/*OWN ADDRESS REGISTER1				OFFSET 0x08*/
+		_IO uint32_t OAR2;						/*OWN ADDRESS REGISTER2				OFFSET 0x0C*/
+		_IO uint32_t TIMEINR;					/*TIMING REGISTER 					OFFSET 0x10*/
+		_IO uint32_t TIMEOUTR;					/*TIMEOUT REGISTER					OFFSET 0x14*/
+		_IO uint32_t ISR;						/*INTERRUPT STATUS REGISTER			OFFSET 0x18*/
+		_IO uint32_t ICR;						/*INTERRUPT CLEAR REGISTER			OFFSET 0x1C*/
+		_IO uint32_t PECR;						/*PACKET ERROR CHECKING REGISTER	OFFSET 0x20*/
+		_IO uint32_t RXDR;						/*RX DATA REGISTER					OFFSET 0x24*/
+		_IO uint32_t TXDR;						/*TX DATA REGISTER					OFFSET 0x28*/
+		}I2C_REG_DEF;
+/******************************************************************************************************************************************/
+/***********************************************USART**************************************************************************************/
+	typedef struct
+		{
+		_IO uint32_t CR1;						/*CONTROL REGISTER 1 				OFFSET 0x00*/
+		_IO uint32_t CR2;						/*CONTROL REGISTER 2 				OFFSET 0x04*/
+		_IO uint32_t CR3;						/*CONTROL REGISTER 3 				OFFSET 0x08*/
+		_IO uint32_t BRR;						/*BAUD RATE REGISTER				OFFSET 0x0C*/
+		_IO uint32_t GTPR;						/*GUARD TIME REGISTER				OFFSET 0x10*/
+		_IO uint32_t RTOR;						/*RECIEVER TIMEOUT REGISTER			OFFSET 0x14*/
+		_IO uint32_t RQR;						/*REQUEST REGISTER					OFFSET 0x18*/
+		_IO uint32_t ISR;						/*INTERRUPT AND STATUS REGISTER		OFFSET 0x1C*/
+		_IO uint32_t ICR;						/*INTERRUPT FLAG CLEAR REGISTER		OFFSET 0x20*/
+		_IO uint32_t RDR;						/*RECIEVE DATA REGISTER				OFFSET 0x24*/
+		_IO uint32_t TDR;						/*TRASNMIT DATA REGISTER			OFFSET 0x28*/
+		_IO uint32_t PRESC;						/*PRESCALAR							OFFSET 0X30*/
+		}USART_REG_DEF;
+/*************************************************EXTI**************************************************************************************/
+	typedef struct
+		{
+		_IO uint32_t
+		};
+/******************************************************************************************************************************************/
 #endif /* INC_STM32G071XX_H_ */
