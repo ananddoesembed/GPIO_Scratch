@@ -49,6 +49,10 @@
 #define EXTI_BASE_ADDR						AHB_BASE_ADDR+0x1800
 /***************************************************************************************************************************************/
 
+/****************************************RESET AND CLOCK CONTROL****************************************************************************/
+#define RCC_BASE_ADDR						AHB_BASE_ADDR+0x1000
+/***************************************************************************************************************************************/
+
 /***************************************Peripheral Definitions **************************************************************************/
 
 /**********************************************GPIO**************************************************************************************/
@@ -111,12 +115,62 @@ typedef struct
 		_IO uint32_t ICR;						/*INTERRUPT FLAG CLEAR REGISTER		OFFSET 0x20*/
 		_IO uint32_t RDR;						/*RECIEVE DATA REGISTER				OFFSET 0x24*/
 		_IO uint32_t TDR;						/*TRASNMIT DATA REGISTER			OFFSET 0x28*/
-		_IO uint32_t PRESC;						/*PRESCALAR							OFFSET 0X30*/
+		_IO uint32_t PRESC;						/*PRESCALAR							OFFSET 0X2C*/
 		}USART_REG_DEF;
+/*******************************************************************************************************************************************/
 /*************************************************EXTI**************************************************************************************/
 	typedef struct
 		{
-		_IO uint32_t
+		_IO uint32_t RTSR;						/*RISING EDGE TRIGGER DECTECTION 	OFFSET	0x00*/
+		_IO uint32_t FTSR1;						/*FALLING EDGE TRIGGER DECTECTION 	OFFSET	0x04*/
+		_IO uint32_t SWIER1;					/*SOFTWARE INT EVENT REGISTER		OFFSET  0x08*/
+		_IO uint32_t RPR1;						/*RISING EDGE PENDING REGISTER 		OFFSET  0x0C*/
+		_IO uint32_t FPR1;						/*FALLING EDGE PENDING REGISTER 	OFFSET	0x10*/
+		_IO uint32_t RESERVE1[19];				/*RESERVED1							OFFSET	0x14-0x5C*/
+		_IO uint32_t EXTICR1;					/*INTERRUPT SELECTION REGISTER1		OFFSET  0x60*/
+		_IO uint32_t EXTICR2;					/*INTERRUPT SELECTION REGISTER2		OFFSET  0x64*/
+		_IO uint32_t EXTICR3;					/*INTERRUPT SELECTION REGISTER3		OFFSET  0x68*/
+		_IO uint32_t EXTICR4;					/*INTERRUPT SELECTION REGISTER4		OFFSET  0x6C*/
+		_IO uint32_t RESERVE2[4];				/*RESERVED2 						OFFSET 	0x70-0x7C*/
+		_IO uint32_t IMR1;						/*WAKEUPWITH INTERRUPTMASK REGISTER1OFFSET 	0x80*/
+		_IO uint32_t EMR1;						/*WAKEUPWITH EVENTMASK REGISTER1		OFFSET 	0x84*/
+		_IO uint32_t RESERVE3[2];				/*RESERVED3 						OFFSET	0x88-0x8C*/
+		_IO uint32_t IMR2;						/*WAKEUPWITH INTERRUPTMASK REGISTER2OFFSET 	0x90*/
+		_IO uint32_t EMR2;						/**WAKEUPWITH EVENTMASK REGISTER2	OFFSET 	0x94*/
 		};
+/******************************************************************************************************************************************/
+/*************************************************RCC**************************************************************************************/
+	typedef struct
+		{
+		_IO uint32_t CR;						/*CLOCK CONTROL REGISTER			OFFSET	0x00*/
+		_IO uint32_t ICSCR;						/**/
+		_IO uint32_t CFGR;
+		_IO uint32_t PLL_CFGR;
+		_IO uint32_t RESERVED;
+		_IO uint32_t RESERVED;
+		_IO uint32_t CIER;
+		_IO uint32_t CIFR;
+		_IO uint32_t CICR;
+		_IO uint32_t IOPRSTR;
+		_IO uint32_t AHBRSTR;
+		_IO uint32_t APBRSTR1;
+		_IO uint32_t APBRSTR2;
+		_IO uint32_t APBRSTR2;
+		_IO uint32_t IOPENR;
+		_IO uint32_t AHBENR;
+		_IO uint32_t APBENR1;
+		_IO uint32_t APBENR2;
+		_IO uint32_t IOPSMENR;
+		_IO uint32_t AHBSMENR;
+		_IO uint32_t APBSMENR1;
+		_IO uint32_t APBSMENR2;
+		_IO uint32_t CCIPR;
+		_IO uint32_t BDCR;
+		_IO uint32_t CSR;
+		};
+/******************************************************************************************************************************************/
+/*************************************************SYSCGR***********************************************************************************/
+
+/******************************************************************************************************************************************/
 /******************************************************************************************************************************************/
 #endif /* INC_STM32G071XX_H_ */
