@@ -22,9 +22,7 @@
 #define IOPORT_BASE_ADDR					0x50000000U
 #define AHB_BASE_ADDR						0x40020000U
 #define APB_BASE_ADDR						0x40000000U
-/**************************************************************************************************************************************/
 
-/*********************************************IOPORTS***********************************************************************************/
 #define PORT_GPIOA							IOPORT_BASE_ADDR
 #define PORT_GPIOB							IOPORT_BASE_ADDR+0x0400
 #define PORT_GPIOC							IOPORT_BASE_ADDR+0x0800
@@ -52,113 +50,6 @@
 /****************************************RESET AND CLOCK CONTROL****************************************************************************/
 #define RCC_BASE_ADDR						AHB_BASE_ADDR+0x1000
 /***************************************************************************************************************************************/
-
-/***************************************Peripheral Definitions **************************************************************************/
-
-/**********************************************GPIO**************************************************************************************/
-typedef struct
-		{
-	 	_IO uint32_t MODER;						/*MODE REGISTER 						OFFSET 0x00*/
-	 	_IO uint32_t OTYPER;					/*OUTPUT TYPE REGISTER					OFFSET 0x04*/
-	 	_IO uint32_t OSPEEDR;					/*OUTPUT SPEED REGISTER					OFFSET 0x08*/
-	 	_IO uint32_t PUPDR;						/*PULLUP PULLDOWN REGISTER				OFFSET 0x0C*/
-	 	_IO uint32_t IDR;						/*INPUT DATA REGISTER					OFFSET 0x10*/
-	 	_IO uint32_t ODR;						/*OUTPUT DATA REGISTER					OFFSET 0x14*/
-	 	_IO uint32_t BSRR;						/*BIT SET/RESET REGISTER				OFFSET 0x18*/
-	 	_IO uint32_t LCKR;						/*CONFIGURATION LOCK REGISTER			OFFSET 0x1C*/
-	 	_IO uint32_t AFRL;						/*ALTERNATE FUNCTION REGISTER LOW		OFFSET 0x20*/
-	 	_IO uint32_t AFRH;						/*ALTERNATE FUNCTION REGISTER LOW		OFFSET 0x24*/
-	 	_IO uint32_t BRR;						/*BIT RESET REGISTER					OFFSET 0x28*/
-		}GPIO_REG_DEF;
-/*******************************************************************************************************************************************/
-
-#define GPIOA								 (GPIO_REG_DEF*)PORT_GPIOA
-#define GPIOB								 (GPIO_REG_DEF*)PORT_GPIOB
-#define GPIOC								 (GPIO_REG_DEF*)PORT_GPIOC
-#define GPIOD								 (GPIO_REG_DEF*)PORT_GPIOD
-#define GPIOF								 (GPIO_REG_DEF*)PORT_GPIOF
-
-/*************************************************SPI***************************************************************************************/
-	typedef struct
-		{
-		_IO uint32_t CR1;						/*CONTROL REGISTER 1 					OFFSET 0x00*/
-		_IO uint32_t CR2;						/*CONTROL REGISTER 2					OFFSET 0x04*/
-		_IO uint32_t SR;						/*STATUS REGISTER						OFFSET 0x08*/
-		_IO uint32_t DR;						/*DATA REGISTER							OFFSET 0x0C*/
-		_IO uint32_t CRCPR;						/*CRC POLYNOMIAL REGISTER 				OFFSET 0x10*/
-		_IO uint32_t RXCRCR;					/*RX CRC REGISTER						OFFSET 0x14*/
-		_IO uint32_t TXCRCR;					/*TX CRC REGISTER						OFFSET 0x18*/
-		_IO uint32_t I2SCFGR;					/*I2S CONFIGURATION REGISTER			OFFSET 0x1C*/
-		_IO uint32_t I2SPR;						/*I2S PRESCALAR REGISTER				OFFSET 0x20*/
-		}SPI_REF_DEF;
-/******************************************************************************************************************************************/
-
-#define	SPI1								(SPI_REF_DEF*)SPI1_BASE_ADDR
-#define	SPI2								(SPI_REF_DEF*)SPI2_BASE_ADDR
-
-/************************************************I2C***************************************************************************************/
-	typedef struct
-		{
-		_IO uint32_t CR1;						/*CONTROL REGISTER 1 					OFFSET 0x00*/
-		_IO uint32_t CR2;						/*CONTROL REGISTER 2					OFFSET 0x04*/
-		_IO uint32_t OAR1;						/*OWN ADDRESS REGISTER1					OFFSET 0x08*/
-		_IO uint32_t OAR2;						/*OWN ADDRESS REGISTER2					OFFSET 0x0C*/
-		_IO uint32_t TIMEINR;					/*TIMING REGISTER 						OFFSET 0x10*/
-		_IO uint32_t TIMEOUTR;					/*TIMEOUT REGISTER						OFFSET 0x14*/
-		_IO uint32_t ISR;						/*INTERRUPT STATUS REGISTER				OFFSET 0x18*/
-		_IO uint32_t ICR;						/*INTERRUPT CLEAR REGISTER				OFFSET 0x1C*/
-		_IO uint32_t PECR;						/*PACKET ERROR CHECKING REGISTER		OFFSET 0x20*/
-		_IO uint32_t RXDR;						/*RX DATA REGISTER						OFFSET 0x24*/
-		_IO uint32_t TXDR;						/*TX DATA REGISTER						OFFSET 0x28*/
-		}I2C_REG_DEF;
-/******************************************************************************************************************************************/
-
-#define I2C1								(I2C_REG_DEF*)I2C1_BASE_ADDR
-#define I2C2								(I2C_REG_DEF*)I2C2_BASE_ADDR
-
-/***********************************************USART**************************************************************************************/
-	typedef struct
-		{
-		_IO uint32_t CR1;						/*CONTROL REGISTER 1 					OFFSET 0x00*/
-		_IO uint32_t CR2;						/*CONTROL REGISTER 2 					OFFSET 0x04*/
-		_IO uint32_t CR3;						/*CONTROL REGISTER 3 					OFFSET 0x08*/
-		_IO uint32_t BRR;						/*BAUD RATE REGISTER					OFFSET 0x0C*/
-		_IO uint32_t GTPR;						/*GUARD TIME REGISTER					OFFSET 0x10*/
-		_IO uint32_t RTOR;						/*RECIEVER TIMEOUT REGISTER				OFFSET 0x14*/
-		_IO uint32_t RQR;						/*REQUEST REGISTER						OFFSET 0x18*/
-		_IO uint32_t ISR;						/*INTERRUPT AND STATUS REGISTER			OFFSET 0x1C*/
-		_IO uint32_t ICR;						/*INTERRUPT FLAG CLEAR REGISTER			OFFSET 0x20*/
-		_IO uint32_t RDR;						/*RECIEVE DATA REGISTER					OFFSET 0x24*/
-		_IO uint32_t TDR;						/*TRASNMIT DATA REGISTER				OFFSET 0x28*/
-		_IO uint32_t PRESC;						/*PRESCALAR								OFFSET 0X2C*/
-		}USART_REG_DEF;
-/*******************************************************************************************************************************************/
-#define USART1								(USART_REG_DEF*)USART1_BASE_ADDR
-#define USART2								(USART_REG_DEF*)USART2_BASE_ADDR
-#define USART3								(USART_REG_DEF*)USART3_BASE_ADDR
-#define USART4								(USART_REG_DEF*)USART4_BASE_ADDR
-/*************************************************EXTI**************************************************************************************/
-	typedef struct
-		{
-		_IO uint32_t RTSR;						/*RISING EDGE TRIGGER DECTECTION 		OFFSET	0x00*/
-		_IO uint32_t FTSR1;						/*FALLING EDGE TRIGGER DECTECTION 		OFFSET	0x04*/
-		_IO uint32_t SWIER1;					/*SOFTWARE INT EVENT REGISTER			OFFSET  0x08*/
-		_IO uint32_t RPR1;						/*RISING EDGE PENDING REGISTER 			OFFSET  0x0C*/
-		_IO uint32_t FPR1;						/*FALLING EDGE PENDING REGISTER 		OFFSET	0x10*/
-		_IO uint32_t RESERVE1[19];				/*RESERVED1								OFFSET	0x14-0x5C*/
-		_IO uint32_t EXTICR1;					/*INTERRUPT SELECTION REGISTER1			OFFSET  0x60*/
-		_IO uint32_t EXTICR2;					/*INTERRUPT SELECTION REGISTER2			OFFSET  0x64*/
-		_IO uint32_t EXTICR3;					/*INTERRUPT SELECTION REGISTER3			OFFSET  0x68*/
-		_IO uint32_t EXTICR4;					/*INTERRUPT SELECTION REGISTER4			OFFSET  0x6C*/
-		_IO uint32_t RESERVE2[4];				/*RESERVED2 							OFFSET 	0x70-0x7C*/
-		_IO uint32_t IMR1;						/*WAKEUPWITH INTERRUPTMASK REGISTER1	OFFSET 	0x80*/
-		_IO uint32_t EMR1;						/*WAKEUPWITH EVENTMASK REGISTER1		OFFSET 	0x84*/
-		_IO uint32_t RESERVE3[2];				/*RESERVED3 							OFFSET	0x88-0x8C*/
-		_IO uint32_t IMR2;						/*WAKEUPWITH INTERRUPTMASK REGISTER2	OFFSET 	0x90*/
-		_IO uint32_t EMR2;						/**WAKEUPWITH EVENTMASK REGISTER2		OFFSET 	0x94*/
-		}EXTI_REG_DEF;
-/******************************************************************************************************************************************/
-#define EXTI								(EXTI_REG_DEF*)EXTI_BASE_ADDR;
 /*************************************************RCC**************************************************************************************/
 	typedef struct
 		{
@@ -189,8 +80,116 @@ typedef struct
 		_IO uint32_t CSR;						/*CONTROL STATUS REGISTER				OFFSET	0X60*/
 		}RCC_REG_DEF;
 /******************************************************************************************************************************************/
-#define RCC									(RCC_REG_DEF*)RCC_BASE_ADDR;
-/*************************************************SYSCGR***********************************************************************************/
+#define RCC									((RCC_REG_DEF*)RCC_BASE_ADDR)
+/***************************************Peripheral Definitions **************************************************************************/
+
+/**********************************************GPIO**************************************************************************************/
+typedef struct
+		{
+	 	_IO uint32_t MODER;						/*MODE REGISTER 						OFFSET 0x00*/
+	 	_IO uint32_t OTYPER;					/*OUTPUT TYPE REGISTER					OFFSET 0x04*/
+	 	_IO uint32_t OSPEEDR;					/*OUTPUT SPEED REGISTER					OFFSET 0x08*/
+	 	_IO uint32_t PUPDR;						/*PULLUP PULLDOWN REGISTER				OFFSET 0x0C*/
+	 	_IO uint32_t IDR;						/*INPUT DATA REGISTER					OFFSET 0x10*/
+	 	_IO uint32_t ODR;						/*OUTPUT DATA REGISTER					OFFSET 0x14*/
+	 	_IO uint32_t BSRR;						/*BIT SET/RESET REGISTER				OFFSET 0x18*/
+	 	_IO uint32_t LCKR;						/*CONFIGURATION LOCK REGISTER			OFFSET 0x1C*/
+	 	_IO uint32_t AFRL;						/*ALTERNATE FUNCTION REGISTER LOW		OFFSET 0x20*/
+	 	_IO uint32_t AFRH;						/*ALTERNATE FUNCTION REGISTER LOW		OFFSET 0x24*/
+	 	_IO uint32_t BRR;						/*BIT RESET REGISTER					OFFSET 0x28*/
+		}GPIO_REG_DEF;
+/*******************************************************************************************************************************************/
+
+#define GPIOA								 (GPIO_REG_DEF*)PORT_GPIOA
+#define GPIOB								 (GPIO_REG_DEF*)PORT_GPIOB
+#define GPIOC								 (GPIO_REG_DEF*)PORT_GPIOC
+#define GPIOD								 (GPIO_REG_DEF*)PORT_GPIOD
+#define GPIOF								 (GPIO_REG_DEF*)PORT_GPIOF
+
+
+/************************************************SPI**************************************************************************************/
+	typedef struct
+		{
+		_IO uint32_t CR1;						/*CONTROL REGISTER 1 					OFFSET 0x00*/
+		_IO uint32_t CR2;						/*CONTROL REGISTER 2					OFFSET 0x04*/
+		_IO uint32_t SR;						/*STATUS REGISTER						OFFSET 0x08*/
+		_IO uint32_t DR;						/*DATA REGISTER							OFFSET 0x0C*/
+		_IO uint32_t CRCPR;						/*CRC POLYNOMIAL REGISTER 				OFFSET 0x10*/
+		_IO uint32_t RXCRCR;					/*RX CRC REGISTER						OFFSET 0x14*/
+		_IO uint32_t TXCRCR;					/*TX CRC REGISTER						OFFSET 0x18*/
+		_IO uint32_t I2SCFGR;					/*I2S CONFIGURATION REGISTER			OFFSET 0x1C*/
+		_IO uint32_t I2SPR;						/*I2S PRESCALAR REGISTER				OFFSET 0x20*/
+		}SPI_REF_DEF;
+/****************************************************************************************************************************************/
+
+#define	SPI1								(SPI_REF_DEF*)SPI1_BASE_ADDR
+#define	SPI2								(SPI_REF_DEF*)SPI2_BASE_ADDR
+
+/***********************************************I2C**************************************************************************************/
+	typedef struct
+		{
+		_IO uint32_t CR1;						/*CONTROL REGISTER 1 					OFFSET 0x00*/
+		_IO uint32_t CR2;						/*CONTROL REGISTER 2					OFFSET 0x04*/
+		_IO uint32_t OAR1;						/*OWN ADDRESS REGISTER1					OFFSET 0x08*/
+		_IO uint32_t OAR2;						/*OWN ADDRESS REGISTER2					OFFSET 0x0C*/
+		_IO uint32_t TIMEINR;					/*TIMING REGISTER 						OFFSET 0x10*/
+		_IO uint32_t TIMEOUTR;					/*TIMEOUT REGISTER						OFFSET 0x14*/
+		_IO uint32_t ISR;						/*INTERRUPT STATUS REGISTER				OFFSET 0x18*/
+		_IO uint32_t ICR;						/*INTERRUPT CLEAR REGISTER				OFFSET 0x1C*/
+		_IO uint32_t PECR;						/*PACKET ERROR CHECKING REGISTER		OFFSET 0x20*/
+		_IO uint32_t RXDR;						/*RX DATA REGISTER						OFFSET 0x24*/
+		_IO uint32_t TXDR;						/*TX DATA REGISTER						OFFSET 0x28*/
+		}I2C_REG_DEF;
+/****************************************************************************************************************************************/
+
+#define I2C1								(I2C_REG_DEF*)I2C1_BASE_ADDR
+#define I2C2								(I2C_REG_DEF*)I2C2_BASE_ADDR
+
+/**********************************************USART*************************************************************************************/
+	typedef struct
+		{
+		_IO uint32_t CR1;						/*CONTROL REGISTER 1 					OFFSET 0x00*/
+		_IO uint32_t CR2;						/*CONTROL REGISTER 2 					OFFSET 0x04*/
+		_IO uint32_t CR3;						/*CONTROL REGISTER 3 					OFFSET 0x08*/
+		_IO uint32_t BRR;						/*BAUD RATE REGISTER					OFFSET 0x0C*/
+		_IO uint32_t GTPR;						/*GUARD TIME REGISTER					OFFSET 0x10*/
+		_IO uint32_t RTOR;						/*RECIEVER TIMEOUT REGISTER				OFFSET 0x14*/
+		_IO uint32_t RQR;						/*REQUEST REGISTER						OFFSET 0x18*/
+		_IO uint32_t ISR;						/*INTERRUPT AND STATUS REGISTER			OFFSET 0x1C*/
+		_IO uint32_t ICR;						/*INTERRUPT FLAG CLEAR REGISTER			OFFSET 0x20*/
+		_IO uint32_t RDR;						/*RECIEVE DATA REGISTER					OFFSET 0x24*/
+		_IO uint32_t TDR;						/*TRASNMIT DATA REGISTER				OFFSET 0x28*/
+		_IO uint32_t PRESC;						/*PRESCALAR								OFFSET 0X2C*/
+		}USART_REG_DEF;
+/*****************************************************************************************************************************************/
+#define USART1								(USART_REG_DEF*)USART1_BASE_ADDR
+#define USART2								(USART_REG_DEF*)USART2_BASE_ADDR
+#define USART3								(USART_REG_DEF*)USART3_BASE_ADDR
+#define USART4								(USART_REG_DEF*)USART4_BASE_ADDR
+/************************************************EXTI*************************************************************************************/
+	typedef struct
+		{
+		_IO uint32_t RTSR;						/*RISING EDGE TRIGGER DECTECTION 		OFFSET	0x00*/
+		_IO uint32_t FTSR1;						/*FALLING EDGE TRIGGER DECTECTION 		OFFSET	0x04*/
+		_IO uint32_t SWIER1;					/*SOFTWARE INT EVENT REGISTER			OFFSET  0x08*/
+		_IO uint32_t RPR1;						/*RISING EDGE PENDING REGISTER 			OFFSET  0x0C*/
+		_IO uint32_t FPR1;						/*FALLING EDGE PENDING REGISTER 		OFFSET	0x10*/
+		_IO uint32_t RESERVE1[19];				/*RESERVED1								OFFSET	0x14-0x5C*/
+		_IO uint32_t EXTICR1;					/*INTERRUPT SELECTION REGISTER1			OFFSET  0x60*/
+		_IO uint32_t EXTICR2;					/*INTERRUPT SELECTION REGISTER2			OFFSET  0x64*/
+		_IO uint32_t EXTICR3;					/*INTERRUPT SELECTION REGISTER3			OFFSET  0x68*/
+		_IO uint32_t EXTICR4;					/*INTERRUPT SELECTION REGISTER4			OFFSET  0x6C*/
+		_IO uint32_t RESERVE2[4];				/*RESERVED2 							OFFSET 	0x70-0x7C*/
+		_IO uint32_t IMR1;						/*WAKEUPWITH INTERRUPTMASK REGISTER1	OFFSET 	0x80*/
+		_IO uint32_t EMR1;						/*WAKEUPWITH EVENTMASK REGISTER1		OFFSET 	0x84*/
+		_IO uint32_t RESERVE3[2];				/*RESERVED3 							OFFSET	0x88-0x8*/
+		_IO uint32_t IMR2;						/*WAKEUPWITH INTERRUPTMASK REGISTER2	OFFSET 	0x90*/
+		_IO uint32_t EMR2;						/*WAKEUPWITH EVENTMASK REGISTER2		OFFSET 	0x94*/
+		}EXTI_REG_DEF;
+/****************************************************************************************************************************************/
+#define EXTI								(EXTI_REG_DEF*)EXTI_BASE_ADDR
+
+/************************************************SYSCGR**********************************************************************************/
 	typedef struct
 		{
 		_IO uint32_t CFGR1;						/*CONFIGURATION REGISTER1				OFFSET	0x00*/
@@ -230,7 +229,51 @@ typedef struct
 		_IO uint32_t ITLINE30;					/*INTERRUPT LINE STATUS REGISTER1		OFFSET	0xF8*/
 		_IO uint32_t ITLINE31;					/*INTERRUPT LINE STATUS REGISTER1		OFFSET	0xFC*/
 		}SYS_CFGR_REG_DEF;
-/******************************************************************************************************************************************/
-#define SYS_CFGR							(SYS_CFGR_REG_DEF*)SYS_CFG_BASE_ADDR;
+/****************************************************************************************************************************************/
+#define SYS_CFGR							(SYS_CFGR_REG_DEF*)SYS_CFG_BASE_ADDR
+
+
+
+/******************************************************CLOCK EN/DIS FOR PERIPHERALS*******************************************************************/
+void GPIOA_CLK_EN()					{RCC->IOPENR|=(1<<0);}
+void GPIOB_CLK_EN()					{RCC->IOPENR|=(1<<1);}
+void GPIOC_CLK_EN()					{RCC->IOPENR|=(1<<2);}
+void GPIOD_CLK_EN()					{RCC->IOPENR|=(1<<3);}
+void GPIOF_CLK_EN()					{RCC->IOPENR|=(1<<5);}
+
+void GPIOA_CLK_DIS()				{RCC->IOPENR&=~(1<<0);}
+void GPIOB_CLK_DIS()				{RCC->IOPENR&=~(1<<1);}
+void GPIOC_CLK_DIS()				{RCC->IOPENR&=~(1<<2);}
+void GPIOD_CLK_DIS()				{RCC->IOPENR&=~(1<<3);}
+void GPIOF_CLK_DIS()				{RCC->IOPENR&=~(1<<5);}
+
+
+void SPI1_CLK_EN()					{RCC->APBENR2|=(1<<12);}
+void SPI2_CLK_EN()					{RCC->APBENR1|=(1<<14);}
+
+void SPI1_CLK_DIS()					{RCC->APBENR2&=~(1<<12);}
+void SPI2_CLK_DIS()					{RCC->APBENR1&=~(1<<14);}
+
+void USART1_CLK_EN()				{RCC->APBENR2|=(1<<14);}
+void USART2_CLK_EN()				{RCC->APBENR1|=(1<<17);}
+void USART3_CLK_EN()				{RCC->APBENR1|=(1<<18);}
+void USART4_CLK_EN()				{RCC->APBENR1|=(1<<19);}
+void LPUART_CLK_EN()				{RCC->APBENR1|=(1<<20);}
+
+void USART1_CLK_DIS()				{RCC->APBENR2&=~(1<<14);}
+void USART2_CLK_DIS()				{RCC->APBENR1&=~(1<<17);}
+void USART3_CLK_DIS()				{RCC->APBENR1&=~(1<<18);}
+void USART4_CLK_DIS()				{RCC->APBENR1&=~(1<<19);}
+void LPUART_CLK_DIS()				{RCC->APBENR1&=~(1<<20);}
+
+void I2C1_CLK_EN()					{RCC->APBENR1|=(1<<21);}
+void I2C2_CLK_EN()					{RCC->APBENR1|=(1<<22);}
+
+void I2C1_CLK_DIS()					{RCC->APBENR1&=~(1<<21);}
+void I2C2_CLK_DIS()					{RCC->APBENR1&=~(1<<22);}
+
+
+void SYS_CFGR_CLK_EN()				{RCC->APBENR2|=(1<<0);}
+void SYS_CFGR_CLK_DIS()				{RCC->APBENR2&=~(1<<0);}
 /******************************************************************************************************************************************/
 #endif /* INC_STM32G071XX_H_ */
