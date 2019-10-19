@@ -13,11 +13,11 @@
 typedef struct
 {
 	uint8_t pin_number;
-	uint8_t pin_speed;
-	uint8_t pin_pupd;
-	uint8_t pin_mod;
+	uint8_t pin_speed;			/*@Speed of pin*/
+	uint8_t pin_pupd;			/*@Value at pin*/
+	uint8_t pin_mod;			/*@Pin state*/
 	uint8_t pin_alt_mode;
-	uint8_t output_type;
+	uint8_t output_type;		/*@Output Type*/
 
 }GPIO_Config_Pin_s;
 typedef struct
@@ -99,5 +99,49 @@ void GPIO_IRQHandling(uint8_t pin_number);
 #define 			ENABLE				SET
 #define 			DISABLE				RESET
 
+/*********************@Pin state**********************************/
+#define GPIO_INPUT			0
+#define GPIO_OUTPUT			1
+#define GPIO_ALT_FN			2
+#define GPIO_ANALOG			3
+#define GPIO_INT_FT			4
+#define GPIO_INT_RT			5
+#define GPIO_INT_RFT		6
+
+/*********************@Output Type*******************************/
+
+#define OUTPUT_PUSHPULL		0
+#define OUTPUT_OPENDRAIN	0
+
+/********************@Speed of pin******************************/
+#define VERY_LOWSPEED		0
+#define LOW_SPEED			1
+#define HIGHSPEED			2
+#define VERY_HIGHSPEED		3
+
+/*******************@Value at pin*******************************/
+#define NO_PULL_UORD		0
+#define PULLUP				1
+#define PULL_DOWN			2
+#define RESERVED			3
+
+/*******************@Pin_Number**********************************/
+
+#define GPIO_PIN_0			0
+#define GPIO_PIN_1			1
+#define GPIO_PIN_2			2
+#define GPIO_PIN_3			3
+#define GPIO_PIN_4			4
+#define GPIO_PIN_5			5
+#define GPIO_PIN_6			6
+#define GPIO_PIN_7			7
+#define GPIO_PIN_8			8
+#define GPIO_PIN_9			9
+#define GPIO_PIN_10			10
+#define GPIO_PIN_11			11
+#define GPIO_PIN_12			12
+#define GPIO_PIN_13			13
+#define GPIO_PIN_14			14
+#define GPIO_PIN_15			15
 
 #endif /* INC_STM32G071XX_GPIO_H_ */
