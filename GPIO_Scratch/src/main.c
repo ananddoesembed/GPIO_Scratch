@@ -5,7 +5,7 @@
  *      Author: Ananda Padmanabhan
  */
 
-#include "stm32g071xx.h"
+
 int main()
 {
 while(1)
